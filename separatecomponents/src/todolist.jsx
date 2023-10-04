@@ -12,18 +12,22 @@ function TodoList() {
     }
 
     const addTodo = (e) => {
-        if (todo.desc && todo.date) {
+        if (todo.desc.trim() && todo.date) {
             e.preventDefault();
             setTodos([...todos, todo]);
+            setTodo({ desc: "", date: "" })
         }
 
         else {
             e.preventDefault();
+            alert("Description and date are required fields")
+
         }
     }
 
     const deleteTodo = (row) => {
-        setTodos(todos.filter((todo, i) => i !== row));
+        // setTodos(todos.filter((todo, i) => i !== row));
+        setTodos(todos.filter((_, i) => i !== row));
     }
 
 
