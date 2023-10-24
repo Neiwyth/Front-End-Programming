@@ -22,3 +22,18 @@ body {
     align-items: center;
     justify-content: center;
 }
+
+.ag-header-cell-label {
+    justify-content: center;
+}
+
+.ag-cell {
+    display: flex;
+    justify-content: center;
+}
+
+.ag-center-cols-container {
+    display: flex;
+    width: 100% !important;
+    justify-content: center;
+}

@@ -1,6 +1,6 @@
 import { Fragment, useState } from "react";
 import TodoGrid from "./todoGrid";
-import { Button, Stack, TextField } from "@mui/material";
+import { Button, FormControl, InputLabel, MenuItem, Select, Stack, TextField } from "@mui/material";
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 
@@ -47,24 +47,37 @@ function TodoList() {
             <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <Stack direction='row' spacing={2} justifyContent='center' alignItems='center'>
                     <DatePicker
-                        label={label}
+                        label={` Date today ${label}`}
                         format='DD.MM.YYYY'
                         value={date}
                         onChange={handleDate} />
 
-                    <TextField
+                    <TextField style={{ width: '150px' }}
                         label='Description'
                         variant='standard'
                         name='desc'
                         value={todo.desc}
                         onChange={handleInput} />
 
-                    <TextField
+                    <FormControl variant='standard' style={{ width: '150px' }}>
+                        <InputLabel>Priority</InputLabel>
+                        <Select
+                            name="priority"
+                            value={todo.priority}
+                            onChange={handleInput} >
+
+                            <MenuItem value='Low'>Low</MenuItem>
+                            <MenuItem value='Medium'>Medium</MenuItem>
+                            <MenuItem value='High'>High</MenuItem>
+                        </Select>
+                    </FormControl>
+
+                    {/* <TextField
                         label='Priority'
                         variant='standard'
                         name='priority'
                         value={todo.priority}
-                        onChange={handleInput} />
+                        onChange={handleInput} /> */}
 
                     <Button
                         variant='contained'
